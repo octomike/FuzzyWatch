@@ -1,0 +1,23 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "mk-pebble@galax.is",
+    "longName": "Fuzzy Time",
+    "projectType": "native",
+    "resources": {
+        "media": []
+    },
+    "sdkVersion": "3",
+    "shortName": "Fuzzy Time",
+    "targetPlatforms": [
+        "basalt"
+    ],
+    "uuid": "0439b60e-9be4-426a-bed2-45ac9d1ba744",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
