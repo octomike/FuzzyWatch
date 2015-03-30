@@ -11,11 +11,13 @@ static char* s_fuzzy_text[] = { "", "kurz nach", "viertel", "kurz vor halb",
                                 "halb", "kurz nach halb", "dreiviertel", "kurz vor" };
 
 static void time_handler(struct tm *tick_time, TimeUnits units_changed){
+  // conserve some energy and only update once a minute
   tick_timer_service_subscribe(MINUTE_UNIT, time_handler);
   
   // Minutes
   strftime(s_fuzzy_buf, s_buflen, "%M", tick_time);
   s_tmp = atoi(s_fuzzy_buf) + 3;
+  s_hour_offset = 0;
   if( s_tmp >= 0 && s_tmp <= 6 ){
     s_fuzzy_idx = 0;
     s_hour_offset = 1;
