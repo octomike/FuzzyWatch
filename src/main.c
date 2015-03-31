@@ -16,25 +16,25 @@ static void time_handler(struct tm *tick_time, TimeUnits units_changed){
   
   // Minutes
   strftime(s_fuzzy_buf, s_buflen, "%M", tick_time);
-  s_tmp = atoi(s_fuzzy_buf) + 3;
+  s_tmp = atoi(s_fuzzy_buf);
   s_hour_offset = 0;
-  if( s_tmp >= 0 && s_tmp <= 6 ){
+  if( s_tmp >= 57 && s_tmp <= 3 ){
     s_fuzzy_idx = 0;
     s_hour_offset = 1;
   }
-  else if( s_tmp >=  7 && s_tmp <= 14 ){
+  else if( s_tmp >=  4 && s_tmp <= 11 ){
     s_fuzzy_idx = 1;
     s_hour_offset = 1;
   }
-  else if( s_tmp >= 15 && s_tmp <= 21 )
+  else if( s_tmp >= 12 && s_tmp <= 18 )
     s_fuzzy_idx = 2;
-  else if( s_tmp >= 22 && s_tmp <= 29 )
+  else if( s_tmp >= 19 && s_tmp <= 26 )
     s_fuzzy_idx = 3;
-  else if( s_tmp >= 30 && s_tmp <= 36 )
+  else if( s_tmp >= 27 && s_tmp <= 33 )
     s_fuzzy_idx = 4;
-  else if( s_tmp >= 37 && s_tmp <= 44 )
+  else if( s_tmp >= 34 && s_tmp <= 41 )
     s_fuzzy_idx = 5;
-  else if( s_tmp >= 45 && s_tmp <= 51 )
+  else if( s_tmp >= 42 && s_tmp <= 48 )
     s_fuzzy_idx = 6;
   else
     s_fuzzy_idx = 7;
