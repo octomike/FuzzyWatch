@@ -17,33 +17,36 @@ static void time_handler(struct tm *tick_time, TimeUnits units_changed){
   // Minutes
   strftime(s_fuzzy_buf, s_buflen, "%M", tick_time);
   s_tmp = atoi(s_fuzzy_buf);
-  s_hour_offset = 0;
-  if( s_tmp >= 57 && s_tmp <= 3 ){
+  s_hour_offset = 1; // always add one to the hour (%I) per default
+  if( s_tmp >= 0 && s_tmp <= 3 ){
+    s_hour_offset = 0; // 11:01 == eleven
     s_fuzzy_idx = 0;
-    s_hour_offset = 1;
   }
   else if( s_tmp >=  4 && s_tmp <= 11 ){
-    s_fuzzy_idx = 1;
-    s_hour_offset = 1;
+    s_hour_offset = 0; // 11:04 == a bit past eleven
+    s_fuzzy_idx = 1; 
   }
   else if( s_tmp >= 12 && s_tmp <= 18 )
-    s_fuzzy_idx = 2;
+    s_fuzzy_idx = 2; // BUT: 11:12 == quarter twelve (in german!)
   else if( s_tmp >= 19 && s_tmp <= 26 )
     s_fuzzy_idx = 3;
   else if( s_tmp >= 27 && s_tmp <= 33 )
-    s_fuzzy_idx = 4;
+    s_fuzzy_idx = 4; // 11:30 == half twelve
   else if( s_tmp >= 34 && s_tmp <= 41 )
     s_fuzzy_idx = 5;
   else if( s_tmp >= 42 && s_tmp <= 48 )
-    s_fuzzy_idx = 6;
-  else
+    s_fuzzy_idx = 6; // 11:45 == three quarter of twelve
+  else if( s_tmp >= 49 && s_tmp <= 56 )
     s_fuzzy_idx = 7;
+  else {
+    s_fuzzy_idx = 0; // 11:59 == (full) twelve
+  }
   text_layer_set_text(s_fuzzy_layer, s_fuzzy_text[s_fuzzy_idx]);
   
   // Hours
   strftime(s_hours_buf, s_buflen, "%I", tick_time);
   text_layer_set_text(s_hours_layer,
-                      s_hours_text[ (atoi(s_hours_buf) + 12 - s_hour_offset)%12 ]);
+                      s_hours_text[ (atoi(s_hours_buf) + s_hour_offset - 1)%12 ]);
   
   // Date
   strftime(s_dates_buf, s_buflen, "%A  |  %e. %B", tick_time);
