@@ -9,13 +9,13 @@
     "resources": {
         "media": [
             {
-                "file": "fonts/Montserrat-Regular.otf",
-                "name": "FONT_MONTSERRAT_28",
+                "file": "fonts/Montserrat-SemiBold.otf",
+                "name": "FONT_MONTSERRAT_SEMIBOLD_42",
                 "type": "font"
             },
             {
-                "file": "fonts/Montserrat-SemiBold.otf",
-                "name": "FONT_MONTSERRAT_SEMIBOLD_42",
+                "file": "fonts/Montserrat-Regular.otf",
+                "name": "FONT_MONTSERRAT_20",
                 "type": "font"
             }
         ]
