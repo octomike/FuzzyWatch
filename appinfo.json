@@ -10,7 +10,7 @@
         "media": [
             {
                 "type": "font",
-                "name": "OSWALD_FONT_42",
+                "name": "FONT_OSWALD_42",
                 "file": "Oswald-Regular.ttf"
             }
         ]
