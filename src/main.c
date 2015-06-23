@@ -1,14 +1,25 @@
 #include <pebble.h>
-  
+
+// globals
 static Window *s_main_window;
 static TextLayer *s_hours_layer, *s_debug_layer, *s_fuzzy_layer, *s_dates_layer;
 static char *s_fuzzy_buf, *s_hours_buf, *s_dates_buf, *s_debug_buf;
 static int s_buflen=32, s_fuzzy_idx, s_tmp, s_hour_offset = 0;
 
+// config
+#define ColorBackground GColorFolly
+#define ColorForeground GColorWhite
+#define ColorDebug GColorYellow
+#define FontHours FONT_KEY_BITHAM_42_BOLD
+#define FontFuzzy FONT_KEY_GOTHIC_28
+#define FontDates FONT_KEY_GOTHIC_14
+
 static char* s_hours_text[12] = {"Eins", "Zwei", "Drei", "Vier", "Fünf", "Sechs",
                                  "Sieben", "Acht", "Neun", "Zehn", "Elf", "Zwölf" };
 static char* s_fuzzy_text[] = { "", "kurz nach", "viertel", "kurz vor halb",
                                 "halb", "kurz nach halb", "dreiviertel", "kurz vor" };
+
+
 
 static void time_handler(struct tm *tick_time, TimeUnits units_changed){
   // conserve some energy and only update once a minute
@@ -54,34 +65,35 @@ static void time_handler(struct tm *tick_time, TimeUnits units_changed){
 }
 
 static void main_window_load(Window *window){
+  
   // hour layer
   s_hours_layer = text_layer_create(GRect(0,58,130,50));
-  text_layer_set_background_color(s_hours_layer, GColorBlack);
-  text_layer_set_text_color(s_hours_layer, GColorJazzberryJam);
-  text_layer_set_font(s_hours_layer, fonts_get_system_font(FONT_KEY_BITHAM_42_LIGHT));
+  text_layer_set_background_color(s_hours_layer, ColorBackground);
+  text_layer_set_text_color(s_hours_layer, ColorForeground);
+  text_layer_set_font(s_hours_layer, fonts_get_system_font(FontHours));
   text_layer_set_text_alignment(s_hours_layer, GTextAlignmentRight);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_hours_layer));
   
   // fuzzy layer
   s_fuzzy_layer = text_layer_create(GRect(10,38,144,28));
-  text_layer_set_background_color(s_fuzzy_layer, GColorBlack);
-  text_layer_set_text_color(s_fuzzy_layer, GColorJazzberryJam);
-  text_layer_set_font(s_fuzzy_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28));
+  text_layer_set_background_color(s_fuzzy_layer, ColorBackground);
+  text_layer_set_text_color(s_fuzzy_layer, ColorForeground);
+  text_layer_set_font(s_fuzzy_layer, fonts_get_system_font(FontFuzzy));
   text_layer_set_text_alignment(s_fuzzy_layer, GTextAlignmentLeft);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_fuzzy_layer));
   
   // dates layer
   s_dates_layer = text_layer_create(GRect(0,150,144,16));
-  text_layer_set_background_color(s_dates_layer, GColorBlack);
-  text_layer_set_text_color(s_dates_layer, GColorJazzberryJam);
-  text_layer_set_font(s_dates_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14));
+  text_layer_set_background_color(s_dates_layer, ColorBackground);
+  text_layer_set_text_color(s_dates_layer, ColorForeground);
+  text_layer_set_font(s_dates_layer, fonts_get_system_font(FontDates));
   text_layer_set_text_alignment(s_dates_layer, GTextAlignmentCenter);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_dates_layer));
   
   // debug text layer at the top
   s_debug_layer = text_layer_create(GRect(0,0,144,20));
-  text_layer_set_background_color(s_debug_layer, GColorBlack);
-  text_layer_set_text_color(s_debug_layer, GColorYellow);
+  text_layer_set_background_color(s_debug_layer, ColorBackground);
+  text_layer_set_text_color(s_debug_layer, ColorDebug);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_debug_layer));
 
   // register time handler
@@ -110,7 +122,7 @@ static void init(){
       .load = main_window_load,
       .unload = main_window_unload
   });
-  window_set_background_color(s_main_window, GColorBlack);
+  window_set_background_color(s_main_window, ColorBackground);
   window_stack_push(s_main_window, true);
   
   // global stuff
