@@ -9,6 +9,12 @@
     "resources": {
         "media": [
             {
+                "file": "images/menu_icon.png",
+                "menuIcon": true,
+                "name": "MENU_ICON",
+                "type": "png"
+            },
+            {
                 "file": "fonts/Montserrat-Regular.otf",
                 "name": "FONT_MONTSERRAT_20",
                 "type": "font"
