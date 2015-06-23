@@ -9,9 +9,14 @@
     "resources": {
         "media": [
             {
-                "type": "font",
-                "name": "FONT_OSWALD_42",
-                "file": "Oswald-Regular.ttf"
+                "file": "fonts/Aller_Rg.ttf",
+                "name": "FONT_ALLER_30",
+                "type": "font"
+            },
+            {
+                "file": "fonts/Aller_Bd.ttf",
+                "name": "FONT_ALLER_BOLD_42",
+                "type": "font"
             }
         ]
     },
