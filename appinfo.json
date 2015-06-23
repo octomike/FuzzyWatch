@@ -9,13 +9,13 @@
     "resources": {
         "media": [
             {
-                "file": "fonts/Aller_Rg.ttf",
-                "name": "FONT_ALLER_30",
+                "file": "fonts/Montserrat-Regular.otf",
+                "name": "FONT_MONTSERRAT_28",
                 "type": "font"
             },
             {
-                "file": "fonts/Aller_Bd.ttf",
-                "name": "FONT_ALLER_BOLD_42",
+                "file": "fonts/Montserrat-SemiBold.otf",
+                "name": "FONT_MONTSERRAT_SEMIBOLD_42",
                 "type": "font"
             }
         ]
