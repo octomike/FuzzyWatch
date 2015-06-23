@@ -8,15 +8,15 @@ static int s_buflen=32, s_fuzzy_idx, s_tmp, s_hour_offset = 0;
 static GFont s_font_custom1,s_font_custom2;
 
 // config
-#define ColorBackground GColorFolly
+#define ColorBackground GColorDarkCandyAppleRed
 #define ColorForeground GColorWhite
 #define ColorDebug GColorYellow
 #define FontCustom1 RESOURCE_ID_FONT_MONTSERRAT_SEMIBOLD_42
 #define FontCustom2 RESOURCE_ID_FONT_MONTSERRAT_20
 //#define FontHours fonts_get_system_font(FONT_KEY_BITHAM_42_BOLD)
 #define FontHours s_font_custom1
-//#define FontFuzzy fonts_get_system_font(FONT_KEY_GOTHIC_28)
-#define FontFuzzy s_font_custom2
+#define FontFuzzy fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD)
+//#define FontFuzzy s_font_custom2
 #define FontDates fonts_get_system_font(FONT_KEY_GOTHIC_14_BOLD)
 
 
@@ -80,15 +80,15 @@ static void main_window_load(Window *window){
   s_hours_layer = text_layer_create(GRect(0,64,130,50));
   text_layer_set_background_color(s_hours_layer, ColorBackground);
   text_layer_set_text_color(s_hours_layer, ColorForeground);
-  text_layer_set_font(s_hours_layer, s_font_custom1);
+  text_layer_set_font(s_hours_layer, FontHours);
   text_layer_set_text_alignment(s_hours_layer, GTextAlignmentRight);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_hours_layer));
   
   // fuzzy layer
-  s_fuzzy_layer = text_layer_create(GRect(4,44,144,32));
+  s_fuzzy_layer = text_layer_create(GRect(0,44,144,32));
   text_layer_set_background_color(s_fuzzy_layer, ColorBackground);
   text_layer_set_text_color(s_fuzzy_layer, ColorForeground);
-  text_layer_set_font(s_fuzzy_layer, s_font_custom2);
+  text_layer_set_font(s_fuzzy_layer, FontFuzzy);
   text_layer_set_text_alignment(s_fuzzy_layer, GTextAlignmentLeft);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_fuzzy_layer));
   
