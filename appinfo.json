@@ -7,7 +7,13 @@
     "longName": "Fuzzy Time",
     "projectType": "native",
     "resources": {
-        "media": []
+        "media": [
+            {
+                "type": "font",
+                "name": "OSWALD_FONT_42",
+                "file": "Oswald-Regular.ttf"
+            }
+        ]
     },
     "sdkVersion": "3",
     "shortName": "Fuzzy Time",
