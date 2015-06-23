@@ -11,7 +11,7 @@ static GFont s_font_custom1,s_font_custom2;
 #define ColorBackground GColorDarkCandyAppleRed
 #define ColorForeground GColorWhite
 #define ColorDebug GColorYellow
-#define FontCustom1 RESOURCE_ID_FONT_MONTSERRAT_SEMIBOLD_42
+#define FontCustom1 RESOURCE_ID_FONT_MONTSERRAT_SEMIBOLD_40
 #define FontCustom2 RESOURCE_ID_FONT_MONTSERRAT_20
 //#define FontHours fonts_get_system_font(FONT_KEY_BITHAM_42_BOLD)
 #define FontHours s_font_custom1
@@ -20,8 +20,8 @@ static GFont s_font_custom1,s_font_custom2;
 #define FontDates fonts_get_system_font(FONT_KEY_GOTHIC_14_BOLD)
 
 
-static char* s_hours_text[12] = {"Eins", "Zwei", "Drei", "Vier", "Fünf", "Sechs",
-                                 "Sieben", "Acht", "Neun", "Zehn", "Elf", "Zwölf" };
+static char* s_hours_text[12] = {"eins", "zwei", "drei", "vier", "fünf", "sechs",
+                                 "sieben", "acht", "neun", "zehn", "elf", "zwölf" };
 static char* s_fuzzy_text[] = { "", "kurz nach", "viertel", "kurz vor halb",
                                 "halb", "kurz nach halb", "dreiviertel", "kurz vor" };
 
@@ -77,7 +77,7 @@ static void main_window_load(Window *window){
   s_font_custom2 = fonts_load_custom_font(resource_get_handle(FontCustom2));
   
   // hour layer
-  s_hours_layer = text_layer_create(GRect(0,64,130,50));
+  s_hours_layer = text_layer_create(GRect(0,64,140,50));
   text_layer_set_background_color(s_hours_layer, ColorBackground);
   text_layer_set_text_color(s_hours_layer, ColorForeground);
   text_layer_set_font(s_hours_layer, FontHours);
