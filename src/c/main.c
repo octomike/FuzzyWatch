@@ -77,7 +77,7 @@ static void main_window_load(Window *window){
   s_font_custom2 = fonts_load_custom_font(resource_get_handle(FontCustom2));
   
   // hour layer
-  s_hours_layer = text_layer_create(GRect(0,64,140,50));
+  s_hours_layer = text_layer_create(GRect(0,66,140,50));
   text_layer_set_background_color(s_hours_layer, ColorBackground);
   text_layer_set_text_color(s_hours_layer, ColorForeground);
   text_layer_set_font(s_hours_layer, FontHours);
@@ -85,7 +85,7 @@ static void main_window_load(Window *window){
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_hours_layer));
   
   // fuzzy layer
-  s_fuzzy_layer = text_layer_create(GRect(0,44,144,32));
+  s_fuzzy_layer = text_layer_create(GRect(0,42,144,32));
   text_layer_set_background_color(s_fuzzy_layer, ColorBackground);
   text_layer_set_text_color(s_fuzzy_layer, ColorForeground);
   text_layer_set_font(s_fuzzy_layer, FontFuzzy);

@@ -1,0 +1,41 @@
+{
+    "author": "mk-pebble@galax.is",
+    "dependencies": {},
+    "keywords": [],
+    "name": "fuzzy-time",
+    "pebble": {
+        "displayName": "Fuzzy Time",
+        "enableMultiJS": false,
+        "messageKeys": {},
+        "projectType": "native",
+        "resources": {
+            "media": [
+                {
+                    "file": "images/menu_icon.png",
+                    "menuIcon": true,
+                    "name": "MENU_ICON",
+                    "type": "png"
+                },
+                {
+                    "file": "fonts/Montserrat-SemiBold.otf",
+                    "name": "FONT_MONTSERRAT_SEMIBOLD_40",
+                    "type": "font"
+                },
+                {
+                    "file": "fonts/Montserrat-Regular.otf",
+                    "name": "FONT_MONTSERRAT_20",
+                    "type": "font"
+                }
+            ]
+        },
+        "sdkVersion": "3",
+        "targetPlatforms": [
+            "basalt"
+        ],
+        "uuid": "0439b60e-9be4-426a-bed2-45ac9d1ba744",
+        "watchapp": {
+            "watchface": true
+        }
+    },
+    "version": "1.0.0"
+}
